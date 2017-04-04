@@ -1,18 +1,18 @@
 html {
   text-align: center;
 }
-.app-title {
-  margin-bottom: 15px;
-}
-.signup-signin-container {
+.container {
   width: 40%;
   margin: auto;
+}
+.app-title {
+  margin-bottom: 15px;
 }
 .form-group {
   margin-bottom: 5px;
 }
 .signup-signin-btn {
-  width: 424px;
+  width: 450px;
 }
 .signup-signin-switch {
   font-size: 15px;
