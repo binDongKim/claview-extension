@@ -6,24 +6,24 @@
   </head>
   <body>
     <div class="container">
-      <div class="signin-container">
+      <div class="signup-signin-container">
         <header><% include ../partials/header %></header>
         <main>
           <div class="panel panel-default">
             <div class="panel-body">
               <!-- SIGNIN FORM -->
               <form action="/signin" method="post">
-                <div class="signin-form-group form-group">
+                <div class="form-group">
                   <input type="text" class="form-control input-lg" name="email" placeholder="Email">
                 </div>
-                <div class="signin-form-group form-group">
+                <div class="form-group">
                   <input type="password" class="form-control input-lg" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="signin-btn btn btn-primary btn-lg">Signin</button>
+                <button type="submit" class="signup-signin-btn btn btn-primary btn-lg">Signin</button>
               </form>
             </div>
           </div>
-          <p>Need an account? <a href="/signup" class="btn btn-default">Signup</a></p>
+          <p class="signup-signin-switch">Need an account? <a href="/signup" class="btn btn-default">Signup</a></p>
         </main>
       </div>
     </div>
