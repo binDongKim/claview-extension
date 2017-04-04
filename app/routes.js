@@ -1,8 +1,8 @@
 module.exports = function(app, passport) {
 
-  // home page
+  // home(signin) page
   app.get('/', function(req, res) {
-    if(req.user) {
+    if(req.isAuthenticated()) {
       res.redirect('/evaluate');
     } else {
       res.render('index.ejs', { message: req.flash('signinMessage') });
@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
   });
 
   // evaluate page
-  app.get('/evaluate', isLoggedIn, function(req, res) {
+  app.get('/evaluate', isAuthenticated, function(req, res) {
     res.render('evaluate.ejs', {
       user : req.user // get the user out of session and pass to template
     });
@@ -51,8 +51,8 @@ module.exports = function(app, passport) {
 
   });
 };
-// route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
+// route middleware to make sure a user is authenticated
+function isAuthenticated(req, res, next) {
 
     // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
