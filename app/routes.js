@@ -5,18 +5,18 @@ module.exports = function(app, passport) {
     if(req.isAuthenticated()) {
       res.redirect('/evaluate');
     } else {
-      res.render('index.ejs', { message: req.flash('signinMessage') });
+      res.render('pages/index', { message: req.flash('signinMessage') });
     }
   });
 
   // signup page
   app.get('/signup', function(req, res) {
-    res.render('signup.ejs', { message: req.flash('signupMessage') });
+    res.render('pages/signup', { message: req.flash('signupMessage') });
   });
 
   // evaluate page
   app.get('/evaluate', isAuthenticated, function(req, res) {
-    res.render('evaluate.ejs', {
+    res.render('pages/evaluate', {
       user : req.user // get the user out of session and pass to template
     });
   });
