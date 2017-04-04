@@ -16,6 +16,7 @@ require('./config/passport')(passport);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname));
 
 app.set('view engine', 'ejs');
 // required for passport

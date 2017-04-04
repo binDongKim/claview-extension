@@ -1,5 +1,5 @@
 var LocalStrategy = require('passport-local').Strategy;
-var User          = require('../app/models/user');
+var User          = require('../app/models/user.js');
 
 module.exports = function(passport) {
   // required for persistent login sessions
@@ -32,7 +32,6 @@ module.exports = function(passport) {
         return done(null, false, req.flash('signupMessage', 'That email is already taken!'));
       } else {
         var newUser = new User();
-
         // set the user's local credentials
         newUser.email    = email;
         newUser.password = newUser.generateHash(password);
