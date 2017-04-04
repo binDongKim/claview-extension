@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <title>Claview Homepage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/claview.css">
   </head>
   <body>
     <div class="container">
-      <a href="/signin" class="btn btn-default">Signin</a>
-      <a href="/signup" class="btn btn-default">Signup</a>
+      <div class="signin-container">
+        <h1 class="app-title"><span class="fa fa-university" aria-hidden="true">Claview</span></h1>
+        <!-- show any messages that come back with authentication -->
+        <% if (message.length > 0) { %>
+          <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        <div class="form-container panel panel-default">
+          <div class="panel-body">
+            <!-- SIGNIN FORM -->
+            <form action="/signin" method="post">
+              <div class="signin-form-group form-group">
+                <input type="text" class="form-control input-lg" name="email" placeholder="Email">
+              </div>
+              <div class="signin-form-group form-group">
+                <input type="password" class="form-control input-lg" name="password" placeholder="Password">
+              </div>
+              <button type="submit" class="signin-btn btn btn-primary btn-lg">Signin</button>
+            </form>
+          </div>
+        </div>
+        <p>Need an account? <a href="/signup" class="btn btn-default">Signup</a></p>
+      </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
