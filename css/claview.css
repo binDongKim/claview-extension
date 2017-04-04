@@ -1,0 +1,16 @@
+html {
+  text-align: center;
+}
+.app-title {
+  margin-bottom: 15px;
+}
+.signin-container {
+  width: 40%;
+  margin: auto;
+}
+.signin-form-group {
+  margin-bottom: 5px;
+}
+.signin-btn {
+  width: 424px;
+}
