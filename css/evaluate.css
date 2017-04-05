@@ -1,6 +1,13 @@
-.evaluate-btn-thumbs-o-up {
+.btn-thumbs-o-up {
   margin-right: 15px;
 }
 .thumbs {
   font-size: 200px;
 }
+.dismiss-btn {
+  width: 70.63px;
+}
+.submit-btn {
+  margin-left: 0px !important;
+}
+
