@@ -2,15 +2,28 @@
 <html lang="en">
   <head>
     <% include ../partials/head %>
+    <link rel="stylesheet" href="../../css/evaluate.css">
   </head>
   <body>
     <div class="container">
       <header><% include ../partials/header %></header>
-      <a href="/signout" class="btn btn-default btn-sm">Signout</a>
-      <span><strong>email:</strong><%= user.email %></span>
-      <span><strong>name:</strong><%= user.name %></span>
+      <main>
+        <!-- <span><strong>email:</strong><%= user.email %></span> -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <button type="button" class="evaluate-btn-thumbs-o-up btn btn-default">
+              <span class="thumbs fa fa-thumbs-o-up"></span>
+            </button>
+            <button type="button" class="evaluate-btn-thumbs-o-down btn btn-default">
+              <span class="thumbs fa fa-thumbs-o-down"></span>
+            </button>
+          </div>
+        </div>
+        <a href="/signout" class="btn btn-default">Signout</a>
+      </main>
     </div>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../../js/evaluate.js"></script>
   </body>
 </html>
