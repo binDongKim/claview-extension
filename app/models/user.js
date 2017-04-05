@@ -2,13 +2,13 @@ var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
-  email: String,
-  name: String,
-  password: String,
-  status: String
+  email: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  password: { type: String, required: true },
+  status: { type: String, required: true },
   // evaluation_date: { type: Date, default: Date.now },
-  // evaluation_result: String,
-  // evaluation_opinion: String
+  evaluation_result: String,
+  evaluation_opinion: String
 });
 
 // generating a hash
