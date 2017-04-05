@@ -15,12 +15,14 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <!-- SIGNIN FORM -->
-            <form action="/signin" method="post">
+            <form data-toggle="validator" action="/signin" method="post">
               <div class="form-group">
-                <input type="text" class="form-control input-lg" name="email" placeholder="Email">
+                <input type="email" class="form-control input-lg" name="email" placeholder="Email" required>
+                <div class="help-block with-errors"></div>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control input-lg" name="password" placeholder="Password">
+                <input type="password" class="form-control input-lg" name="password" placeholder="Password" required>
+                <div class="help-block with-errors"></div>
               </div>
               <button type="submit" class="signup-signin-btn btn btn-primary btn-lg">Signin</button>
             </form>
@@ -29,7 +31,5 @@
         <p class="signup-signin-switch">Need an account? <a href="/signup" class="btn btn-default">Signup</a></p>
       </main>
     </div>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
