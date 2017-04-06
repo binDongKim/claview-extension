@@ -21,4 +21,16 @@ userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password); // compare hash value
 };
 
+// save user's evaluation result
+userSchema.statics.saveResult = function(id, result, opinion) {
+  var User = mongoose.model('User', userSchema);
+  return new Promise(function(resolve, reject) {
+    User.findByIdAndUpdate(id, { evaluation_result: result, evaluation_opinion: opinion }, { new: true }).exec().then(function(updatedUser) {
+      return resolve(updatedUser);
+    }, function(err) {
+      return reject(err);
+    });
+  });
+};
+
 module.exports = mongoose.model('User', userSchema);
