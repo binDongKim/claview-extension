@@ -1,3 +1,5 @@
+var User = require('./models/user.js');
+
 module.exports = function(app, passport) {
 
   // home(signin) page
@@ -23,7 +25,6 @@ module.exports = function(app, passport) {
 
   // evaluation result page
   app.get('/evaluations', function(req, res) {
-
   });
 
   // signout
@@ -47,8 +48,13 @@ module.exports = function(app, passport) {
   }));
 
   // do evaluate
-  app.put('/evaluate', function(req, res) {
-
+  app.post('/evaluate', function(req, res) {
+    User.saveResult(req.user.id, req.body.result, req.body.opinion).then(function(updatedUser) {
+      res.send('Success');
+    }, function(err) {
+      console.log('Error: ' + err);
+      res.send('Error');
+    });
   });
 };
 // route middleware to make sure a user is authenticated
