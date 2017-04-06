@@ -1,5 +1,9 @@
 $(document).ready(function() {
   // autofocus on textarea as soon as it shows up
+  var userResult = $('input[name="result"]').val(); // good or bad
+  $('div[data-buttons="evaluate"] button[data-result=' + userResult + ']').addClass('active'); // active the button user clicked
+  $('div[data-buttons="evaluate"] button:not([data-result=' + userResult + '])').attr('disabled','disabled'); // disable the other button
+
   $('#opinionModal').on('shown.bs.modal', function (event) {
     $('#opinion').focus();
      var button = $(event.relatedTarget) // Button that triggered the modal
@@ -16,7 +20,7 @@ $(document).ready(function() {
     var opinion = $('textarea[name="opinion"]').val();
     swal({
       title: 'Are you sure?',
-      text: 'You will not be able to edit it!',
+      text: 'You will not be able to edit it',
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#337ab7',
@@ -27,7 +31,7 @@ $(document).ready(function() {
         if(message == 'Success') {
           swal({
             title: 'Success!',
-            text: 'Your evaluation has been submitted!',
+            text: 'Your evaluation has been submitted',
             type: 'success'
           }, function(isConfirm) {
             location.reload();

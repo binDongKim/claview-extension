@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <% include ../partials/head %>
+    <link rel="stylesheet" href="../../css/evaluate.css">
+    <script src="../../js/evaluate.js"></script>
   </head>
   <body>
     <div class="container">
       <header><% include ../partials/header %></header>
       <main>
-        <span><strong>email:</strong><%= user.email %></span>
-        <span><strong>name:</strong><%= user.name %></span>
-        <span><strong>status:</strong><%= user.status %></span>
-        <span><strong>evaluation_result:</strong><%= user.evaluation_result %></span>
-        <span><strong>evaluation_opinion:</strong><%= user.evaluation_opinion %></span>
-        <div class="panel panel-default">
+        <!-- <span><strong>email:</strong><%= user.email %></span> -->
+        <!-- <span><strong>name:</strong><%= user.name %></span> -->
+        <!-- <span><strong>status:</strong><%= user.status %></span> -->
+        <!-- <span><strong>evaluation_result:</strong><%= user.evaluation_result %></span> -->
+        <!-- <span><strong>evaluation_opinion:</strong><%= user.evaluation_opinion %></span> -->
+        <div class="panel panel-default" data-buttons="evaluate">
           <div class="panel-body">
             <button type="button" data-toggle="modal" data-target="#opinionModal" data-result="good" class="evaluate-btn btn-thumbs-o-up btn btn-default">
               <span class="thumbs fa fa-thumbs-o-up"></span>
@@ -20,28 +22,27 @@
             <button type="button" data-toggle="modal" data-target="#opinionModal" data-result="bad" class="evaluate-btn btn-thumbs-o-down btn btn-default">
               <span class="thumbs fa fa-thumbs-o-down"></span>
             </button>
-
-            <!-- <% include ./opinion %> -->
-            <div class="modal fade" id="opinionModal" tabindex="-1">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <form id="evaluationForm" action="/evaluate" method="post">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                      <h4 class="modal-title">Leave your opinion(Optional)</h4>
-                    </div>
-                    <div class="modal-body">
-                      <input type="hidden" name="userId" value="<%= user.id %>">
-                      <input type="hidden" name="result" class="result" value="">
-                      <textarea id="opinion" name="opinion" class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="dismiss-btn btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="submit" class="submit-btn btn btn-primary">Submit</button>
-                    </div>
-                  </form>
+          </div>
+        </div>
+        <!-- Opinion Modal -->
+        <div class="modal fade" id="opinionModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form id="evaluationForm" action="/evaluate" method="post">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                  <h4 class="modal-title">Leave your opinion(Optional)</h4>
                 </div>
-              </div>
+                <div class="modal-body">
+                  <input type="hidden" name="userId" value="<%= user.id %>">
+                  <input type="hidden" name="result" class="result" value="<%= user.evaluation_result %>">
+                  <textarea id="opinion" name="opinion" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="dismiss-btn btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="submit-btn btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
