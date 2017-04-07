@@ -17,10 +17,10 @@
         <div class="panel panel-default" data-buttons="evaluate">
           <div class="panel-body">
             <button type="button" data-toggle="modal" data-target="#opinionModal" data-result="good" class="evaluate-btn btn-thumbs-o-up btn btn-default">
-              <span class="thumbs fa fa-thumbs-o-up"></span>
+              <span class="thumbs fa fa-thumbs-up"></span>
             </button>
             <button type="button" data-toggle="modal" data-target="#opinionModal" data-result="bad" class="evaluate-btn btn-thumbs-o-down btn btn-default">
-              <span class="thumbs fa fa-thumbs-o-down"></span>
+              <span class="thumbs fa fa-thumbs-down"></span>
             </button>
           </div>
         </div>
@@ -36,7 +36,7 @@
                 <div class="modal-body">
                   <input type="hidden" name="userId" value="<%= user.id %>">
                   <input type="hidden" name="result" class="result" value="<%= user.evaluation_result %>">
-                  <textarea id="opinion" name="opinion" class="form-control" rows="3"></textarea>
+                  <textarea id="opinion" name="opinion" class="opinion form-control" rows="3"><%= user.evaluation_opinion %></textarea>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="dismiss-btn btn btn-default" data-dismiss="modal">Close</button>
