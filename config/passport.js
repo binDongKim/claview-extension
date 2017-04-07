@@ -1,5 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User          = require('../app/models/user.js');
+var Evaluation    = require('../app/models/evaluation.js');
 
 module.exports = function(passport) {
   // required for persistent login sessions
@@ -39,9 +40,12 @@ module.exports = function(passport) {
         newUser.status   = req.body.status;
 
         // save the user
-        newUser.save(function(err) {
-          if(err)
-            throw err;
+        newUser.save().then(function() {
+          if(newUser.status == 'student') {
+            var evaluation = new Evaluation();
+            evaluation.userId = newUser.id;
+            evaluation.save();
+          }
           return done(null, newUser);
         });
       }
