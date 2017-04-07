@@ -6,10 +6,14 @@ $(document).ready(function() {
 
   $('#opinionModal').on('shown.bs.modal', function (event) {
     $('#opinion').focus();
-     var button = $(event.relatedTarget) // Button that triggered the modal
-     var result = button.data('result');
-     var modal = $(this);
-     modal.find('.result').val(result);
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var result = button.data('result');
+    var modal = $(this);
+    modal.find('.result').val(result);
+    if(modal.find('.opinion').val()) {
+      modal.find('.opinion').attr('readonly', true);
+      modal.find('.submit-btn').attr('disabled', 'disabled');
+    }
   });
 
   $('#evaluationForm').submit(function(event) {
