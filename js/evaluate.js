@@ -1,9 +1,10 @@
 $(document).ready(function() {
   // autofocus on textarea as soon as it shows up
   var userResult = $('input[name="result"]').val(); // good or bad
-  $('div[data-buttons="evaluate"] button[data-result=' + userResult + ']').addClass('active'); // active the button user clicked
-  $('div[data-buttons="evaluate"] button:not([data-result=' + userResult + '])').prop('disabled', true); // disable the other button
-
+  if(userResult) {
+    $('div[data-buttons="evaluate"] button[data-result=' + userResult + ']').addClass('active'); // active the button user clicked
+    $('div[data-buttons="evaluate"] button:not([data-result=' + userResult + '])').prop('disabled', true); // disable the other button
+  }
   $('#opinionModal').on('shown.bs.modal', function (event) {
     $('#opinion').focus();
     var button = $(event.relatedTarget) // Button that triggered the modal
@@ -14,6 +15,9 @@ $(document).ready(function() {
       modal.find('.opinion').prop('readonly', true);
       modal.find('.submit-btn').prop('disabled', true);
     }
+  });
+  $('#opinionModal').on('hidden.bs.modal', function () {
+    $(this).find('.opinion').val('');
   });
 
   $('#evaluationForm').submit(function(event) {
