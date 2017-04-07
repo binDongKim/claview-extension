@@ -19,12 +19,15 @@ module.exports = function(app, passport) {
   // evaluate page
   app.get('/evaluate', isAuthenticated, function(req, res) {
     res.render('pages/evaluate', {
-      user : req.user, // get the user out of session and pass to template
+      user : req.user // get the user out of session and pass to template
     });
   });
 
   // evaluation result page
-  app.get('/evaluations', function(req, res) {
+  app.get('/evaluations', isAuthenticated, function(req, res) {
+    res.render('pages/evaluations', {
+      user : req.user
+    });
   });
 
   // signout
@@ -34,18 +37,12 @@ module.exports = function(app, passport) {
   });
 
   // do signup
-  app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/evaluate', // redirect to the evaluate page
-    failureRedirect : '/signup', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
-  }));
+  app.post('/signup', passport.authenticate('local-signup', { failureRedirect : '/signup', failureFlash : true }),
+  (req, res) => { if(req.user.status == 'student') { res.redirect('/evaluate')} else { res.redirect('/evaluations') } });
 
   // do signin
-  app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect : '/evaluate', // redirect to the evaluate page
-    failureRedirect : '/', // redirect back to the signin page if there is an error
-    failureFlash : true // allow flash messages
-  }));
+  app.post('/signin', passport.authenticate('local-signin', { failureRedirect : '/', failureFlash : true }),
+  (req, res) => { if(req.user.status == 'student') { res.redirect('/evaluate')} else { res.redirect('/evaluations') } });
 
   // do evaluate
   app.post('/evaluate', function(req, res) {
@@ -59,7 +56,6 @@ module.exports = function(app, passport) {
 };
 // route middleware to make sure a user is authenticated
 function isAuthenticated(req, res, next) {
-
     // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
       return next();
