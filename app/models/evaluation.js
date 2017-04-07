@@ -31,11 +31,23 @@ evaluationSchema.statics.getEvaluation = function(id) {
   });
 };
 
-// get all evaluations of today
-evaluationSchema.statics.getEvaluations = function() {
+// get 'good' evaluations of today
+evaluationSchema.statics.getGoodEvaluations = function() {
   return new Promise(function(resolve, reject) {
     var Evaluation = mongoose.model('Evaluation', evaluationSchema);
-    Evaluation.find({ date: new Date().toISOString().slice(0,10) }).exec().then(function(evaluations) {
+    Evaluation.find({ date: new Date().toISOString().slice(0,10), result: 'good' }).exec().then(function(evaluations) {
+      resolve(evaluations);
+    }, function(err) {
+      reject(err);
+    });
+  });
+};
+
+// get 'bad' evaluations of today
+evaluationSchema.statics.getBadEvaluations = function() {
+  return new Promise(function(resolve, reject) {
+    var Evaluation = mongoose.model('Evaluation', evaluationSchema);
+    Evaluation.find({ date: new Date().toISOString().slice(0,10), result: 'bad' }).exec().then(function(evaluations) {
       resolve(evaluations);
     }, function(err) {
       reject(err);

@@ -34,10 +34,16 @@ module.exports = function(app, passport) {
 
   // evaluation result page
   app.get('/evaluations', isAuthenticated, isProfessor, function(req, res) {
-    res.render('pages/evaluations', {
-      user : req.user,
-      message: req.flash('authorityMessage')
-    });
+    Promise.all([Evaluation.getGoodEvaluations(), Evaluation.getBadEvaluations()]).then(function(evaluations) {
+      console.log(evaluations[0]);
+      console.log(evaluations[1]);
+      res.render('pages/evaluations', {
+        user : req.user,
+        goodEvaluations : evaluations[0],
+        badEvaluations : evaluations[1],
+        message: req.flash('authorityMessage')
+      });
+    }, (err) => { console.log(err); });
   });
 
   // signout
