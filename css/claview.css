@@ -17,3 +17,11 @@ html {
 .signup-signin-switch {
   font-size: 15px;
 }
+
+.alert-message {
+  font-size: 16px;
+}
+
+div .alert {
+  margin-bottom: 10px;
+}

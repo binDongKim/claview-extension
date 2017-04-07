@@ -8,9 +8,8 @@
     <div class="container">
       <header><% include ../partials/header %></header>
       <main>
-        <!-- show any messages that come back with authentication -->
         <% if (message.length > 0) { %>
-          <div class="alert alert-danger"><%= message %></div>
+          <div class="alert alert-danger"><p class="alert-message"><%= message %></p></div>
         <% } %>
         <div class="panel panel-default">
           <div class="panel-body">
