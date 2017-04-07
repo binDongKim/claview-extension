@@ -5,7 +5,11 @@ module.exports = function(app, passport) {
   // home(signin) page
   app.get('/', function(req, res) {
     if(req.isAuthenticated()) {
-      res.redirect('/evaluate');
+      if(req.user.status == 'student') {
+        res.redirect('/evaluate');
+      } else {
+        res.redirect('/evaluations');
+      }
     } else {
       res.render('pages/index', { message: req.flash('signinMessage') });
     }
@@ -17,16 +21,18 @@ module.exports = function(app, passport) {
   });
 
   // evaluate page
-  app.get('/evaluate', isAuthenticated, function(req, res) {
+  app.get('/evaluate', isAuthenticated, isStudent, function(req, res) {
     res.render('pages/evaluate', {
-      user : req.user // get the user out of session and pass to template
+      user : req.user, // get the user out of session and pass to template
+      message: req.flash('authorityMessage')
     });
   });
 
   // evaluation result page
-  app.get('/evaluations', isAuthenticated, function(req, res) {
+  app.get('/evaluations', isAuthenticated, isProfessor, function(req, res) {
     res.render('pages/evaluations', {
-      user : req.user
+      user : req.user,
+      message: req.flash('authorityMessage')
     });
   });
 
@@ -38,11 +44,11 @@ module.exports = function(app, passport) {
 
   // do signup
   app.post('/signup', passport.authenticate('local-signup', { failureRedirect : '/signup', failureFlash : true }),
-  (req, res) => { if(req.user.status == 'student') { res.redirect('/evaluate')} else { res.redirect('/evaluations') } });
+  (req, res) => { if(req.user.status == 'student') { res.redirect('/evaluate') } else { res.redirect('/evaluations') } });
 
   // do signin
   app.post('/signin', passport.authenticate('local-signin', { failureRedirect : '/', failureFlash : true }),
-  (req, res) => { if(req.user.status == 'student') { res.redirect('/evaluate')} else { res.redirect('/evaluations') } });
+  (req, res) => { if(req.user.status == 'student') { res.redirect('/evaluate') } else { res.redirect('/evaluations') } });
 
   // do evaluate
   app.post('/evaluate', function(req, res) {
@@ -57,8 +63,22 @@ module.exports = function(app, passport) {
 // route middleware to make sure a user is authenticated
 function isAuthenticated(req, res, next) {
     // if user is authenticated in the session, carry on
-    if (req.isAuthenticated())
+    if(req.isAuthenticated())
       return next();
     // if they aren't, redirect them to the home page
     res.redirect('/');
+}
+
+function isStudent(req, res, next) {
+  if(req.user.status == 'student')
+    return next();
+  req.flash('authorityMessage', 'You have no authority to access that page');
+  res.redirect('/');
+}
+
+function isProfessor(req, res, next) {
+  if(req.user.status == 'professor')
+    return next();
+  req.flash('authorityMessage', 'You have no authority to access that page');
+  res.redirect('/');
 }
