@@ -1,4 +1,5 @@
 var User = require('./models/user.js');
+var Evaluation = require('./models/evaluation.js');
 
 module.exports = function(app, passport) {
 
@@ -22,10 +23,13 @@ module.exports = function(app, passport) {
 
   // evaluate page
   app.get('/evaluate', isAuthenticated, isStudent, function(req, res) {
-    res.render('pages/evaluate', {
-      user : req.user, // get the user out of session and pass to template
-      message: req.flash('authorityMessage')
-    });
+    Evaluation.getEvaluation(req.user.id).then(function(evaluation) {
+      res.render('pages/evaluate', {
+        user : req.user, // get the user out of session and pass to template
+        evaluation : evaluation,
+        message: req.flash('authorityMessage')
+      });
+    }, (err) => { console.log(err); });
   });
 
   // evaluation result page
@@ -52,7 +56,7 @@ module.exports = function(app, passport) {
 
   // do evaluate
   app.post('/evaluate', function(req, res) {
-    User.saveResult(req.user.id, req.body.result, req.body.opinion).then(function(updatedUser) {
+    Evaluation.submitEvaluation(req.user.id, req.body.result, req.body.opinion).then(function(data) {
       res.send('Success');
     }, function(err) {
       console.log('Error: ' + err);
