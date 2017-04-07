@@ -62,7 +62,10 @@ module.exports = function(app, passport) {
 
   // do evaluate
   app.post('/evaluate', function(req, res) {
-    Evaluation.submitEvaluation(req.user.id, req.body.result, req.body.opinion).then(function(data) {
+    var id = req.user.id;
+    var result = req.body.result;
+    var opinion = req.body.opinion ? req.body.opinion : 'No opinion.';
+    Evaluation.submitEvaluation(id, result, opinion).then(function(data) {
       res.send('Success');
     }, function(err) {
       console.log('Error: ' + err);
