@@ -21,7 +21,10 @@ $(document).ready(function() {
     }
   });
   $('#opinionModal').on('hidden.bs.modal', function () {
-    $(this).find('.opinion').val('');
+    var modal = $(this);
+    if(!(modal.find('.opinion').prop('readonly'))) {
+      modal.find('.opinion').val('');
+    }
   });
 
   $('#evaluationForm').submit(function(event) {
@@ -39,7 +42,7 @@ $(document).ready(function() {
       confirmButtonText: 'Yes, submit it!',
       closeOnConfirm: false
     }, function(isConfirm) {
-      $.post(url, { id: userId, result: result, opinion, opinion }).done(function(message) {
+      $.post(url, { id: userId, result: result, opinion: opinion }).done(function(message) {
         if(message == 'Success') {
           swal({
             title: 'Success!',
