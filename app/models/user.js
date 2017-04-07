@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
   name: { type: String, required: true },
   password: { type: String, required: true },
   status: { type: String, required: true },
-  // evaluation_date: { type: Date, default: Date.now },
+  evaluation_date: { type: Date, default: null },
   evaluation_result: String,
   evaluation_opinion: String
 });
@@ -25,7 +25,7 @@ userSchema.methods.validPassword = function(password) {
 userSchema.statics.saveResult = function(id, result, opinion) {
   var User = mongoose.model('User', userSchema);
   return new Promise(function(resolve, reject) {
-    User.findByIdAndUpdate(id, { evaluation_result: result, evaluation_opinion: opinion }, { new: true }).exec().then(function(updatedUser) {
+    User.findByIdAndUpdate(id, { evaluation_result: result, evaluation_opinion: opinion, evaluation_date: Date.now() }, { new: true }).exec().then(function(updatedUser) {
       return resolve(updatedUser);
     }, function(err) {
       return reject(err);
