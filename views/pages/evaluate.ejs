@@ -9,8 +9,14 @@
     <div class="container">
       <header><% include ../partials/header %></header>
       <main>
-        <% if (message.length > 0) { %>
-          <div class="alert alert-success"><p class="alert-message"><%= message %></p></div>
+        <% if(user.evaluation_result) { %>
+          <div class="alert alert-success">
+            <p class="alert-message"><%= user.name %>, Your evaluation has been submitted!</p>
+          </div>
+        <% } else { %>
+          <div class="alert alert-info">
+            <p class="alert-message"><%= user.name %>, How was your class?</p>
+          </div>
         <% } %>
         <div class="panel panel-default" data-buttons="evaluate">
           <div class="panel-body">

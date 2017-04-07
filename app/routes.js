@@ -20,7 +20,6 @@ module.exports = function(app, passport) {
   app.get('/evaluate', isAuthenticated, function(req, res) {
     res.render('pages/evaluate', {
       user : req.user, // get the user out of session and pass to template
-      message: req.flash('opinionSubmittedMessage')
     });
   });
 
@@ -51,7 +50,6 @@ module.exports = function(app, passport) {
   // do evaluate
   app.post('/evaluate', function(req, res) {
     User.saveResult(req.user.id, req.body.result, req.body.opinion).then(function(updatedUser) {
-      req.flash('opinionSubmittedMessage', 'Your evaluation has been submitted!');
       res.send('Success');
     }, function(err) {
       console.log('Error: ' + err);
