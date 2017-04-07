@@ -9,11 +9,9 @@
     <div class="container">
       <header><% include ../partials/header %></header>
       <main>
-        <!-- <span><strong>email:</strong><%= user.email %></span> -->
-        <!-- <span><strong>name:</strong><%= user.name %></span> -->
-        <!-- <span><strong>status:</strong><%= user.status %></span> -->
-        <!-- <span><strong>evaluation_result:</strong><%= user.evaluation_result %></span> -->
-        <!-- <span><strong>evaluation_opinion:</strong><%= user.evaluation_opinion %></span> -->
+        <% if (message.length > 0) { %>
+          <div class="alert alert-success"><p class="alert-message"><%= message %></p></div>
+        <% } %>
         <div class="panel panel-default" data-buttons="evaluate">
           <div class="panel-body">
             <button type="button" data-toggle="modal" data-target="#opinionModal" data-result="good" class="evaluate-btn btn-thumbs-o-up btn btn-default">
