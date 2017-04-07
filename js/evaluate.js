@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('div[data-buttons="evaluate"] button[data-result=' + userResult + ']').addClass('active'); // active the button user clicked
     $('div[data-buttons="evaluate"] button:not([data-result=' + userResult + '])').prop('disabled', true); // disable the other button
   }
-  $('#opinionModal').on('shown.bs.modal', function (event) {
+  $('#opinionModal').on('shown.bs.modal', function(event) {
     $('#opinion').focus();
     var button = $(event.relatedTarget) // Button that triggered the modal
     var result = button.data('result');
