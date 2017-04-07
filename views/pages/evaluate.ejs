@@ -9,6 +9,9 @@
     <div class="container">
       <header><% include ../partials/header %></header>
       <main>
+        <% if(message.length > 0) { %>
+          <div class="authority-error-alert alert alert-warning"><p class="alert-message"><%= message %></p></div>
+        <% } %>
         <% if(user.evaluation_result) { %>
           <div class="alert alert-success">
             <p class="alert-message"><%= user.name %>, Your evaluation has been submitted!</p>

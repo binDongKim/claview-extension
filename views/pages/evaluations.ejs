@@ -9,6 +9,9 @@
       <header><% include ../partials/header %></header>
       <p>교수님!!!</p>
       <main>
+        <% if(message.length > 0) { %>
+          <div class="authority-error-alert alert alert-warning"><p class="alert-message"><%= message %></p></div>
+        <% } %>
         <div class="panel panel-default" data-buttons="evaluate">
           <div class="panel-body">
             <button type="button" data-toggle="modal" data-target="#opinionModal" data-result="good" class="evaluate-btn btn-thumbs-o-up btn btn-default">

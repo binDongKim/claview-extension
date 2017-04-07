@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  // setTimeout(function() {
+  //   $('.authority-error-alert').remove();
+  // }, 4000);
+
   // autofocus on textarea as soon as it shows up
   var userResult = $('input[name="result"]').val(); // good or bad
   if(userResult) {
