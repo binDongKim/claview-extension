@@ -1,0 +1,17 @@
+.evaluate-btn {
+  position: relative;
+}
+
+.evaluate-btn p {
+  font-size: 40px;
+  float: left;
+  position: absolute;
+  left: 25px;
+}
+.good-count {
+  top: 20px;
+}
+
+.bad-count {
+  bottom: 0px;
+}
