@@ -35,7 +35,7 @@ evaluationSchema.statics.getEvaluation = function(id) {
 evaluationSchema.statics.getGoodEvaluations = function() {
   return new Promise(function(resolve, reject) {
     var Evaluation = mongoose.model('Evaluation', evaluationSchema);
-    Evaluation.find({ date: new Date().toISOString().slice(0,10), result: 'good' }, { _id: 0, opinion: 1 }).exec().then(function(evaluations) {
+    Evaluation.find({ date: new Date().toISOString().slice(0,10), result: 'good' }, { _id: 0, result: 1, opinion: 1 }).exec().then(function(evaluations) {
       resolve(evaluations);
     }, function(err) {
       reject(err);
@@ -47,7 +47,7 @@ evaluationSchema.statics.getGoodEvaluations = function() {
 evaluationSchema.statics.getBadEvaluations = function() {
   return new Promise(function(resolve, reject) {
     var Evaluation = mongoose.model('Evaluation', evaluationSchema);
-    Evaluation.find({ date: new Date().toISOString().slice(0,10), result: 'bad' }, { _id: 0, opinion: 1 }).exec().then(function(evaluations) {
+    Evaluation.find({ date: new Date().toISOString().slice(0,10), result: 'bad' }, { _id: 0, result: 1, opinion: 1 }).exec().then(function(evaluations) {
       resolve(evaluations);
     }, function(err) {
       reject(err);
