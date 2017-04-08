@@ -15,3 +15,7 @@
 .bad-count {
   bottom: 0px;
 }
+
+.opinions li {
+  display: none;
+}
