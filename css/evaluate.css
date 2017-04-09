@@ -1,13 +1,21 @@
-.btn-thumbs-o-up {
-  margin-right: 15px;
+@media screen {
+  .btn-thumbs-o-up {
+    margin-right: 15px;
+  }
+  .dismiss-btn {
+    width: 70.63px;
+  }
+  .submit-btn {
+    margin-left: 0px !important;
+  }
 }
-.thumbs {
-  font-size: 200px;
+@media screen and (max-width: 768px) {
+  .thumbs {
+    font-size: 190px;
+  }
 }
-.dismiss-btn {
-  width: 70.63px;
+@media screen and (min-width: 768px) {
+  .thumbs {
+    font-size: 270px;
+  }
 }
-.submit-btn {
-  margin-left: 0px !important;
-}
-

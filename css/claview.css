@@ -2,7 +2,7 @@ html {
   text-align: center;
 }
 .container {
-  width: 40%;
+  width: 50%;
   margin: auto;
 }
 .app-title {
@@ -12,16 +12,14 @@ html {
   margin-bottom: 5px;
 }
 .signup-signin-btn {
-  width: 450px;
+  width: 100%;
 }
 .signup-signin-switch {
-  font-size: 15px;
+  font-size: 20px;
 }
-
 .alert-message {
-  font-size: 16px;
+  font-size: 18px;
 }
-
 div .alert {
   margin-bottom: 10px;
 }
