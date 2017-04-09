@@ -19,11 +19,11 @@ evaluationSchema.statics.submitEvaluation = function(id, result, opinion) {
   });
 };
 
-// get an evaluation with userId
+// get the evaluation of today with userId
 evaluationSchema.statics.getEvaluation = function(id) {
   return new Promise(function(resolve, reject) {
     var Evaluation = mongoose.model('Evaluation', evaluationSchema);
-    Evaluation.findOne({ 'userId' : id }).then(function(evaluation) {
+    Evaluation.findOne({ 'userId': id, date: new Date().toISOString().slice(0,10) }).then(function(evaluation) {
       resolve(evaluation);
     }, function(err) {
       reject(err);
