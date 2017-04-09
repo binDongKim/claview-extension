@@ -40,14 +40,7 @@ module.exports = function(passport) {
         newUser.status   = req.body.status;
 
         // save the user
-        newUser.save().then(function() {
-          if(newUser.status == 'student') {
-            var evaluation = new Evaluation();
-            evaluation.userId = newUser.id;
-            evaluation.save();
-          }
-          return done(null, newUser);
-        });
+        newUser.save().then(() => { return done(null, newUser); });
       }
     });
   }));

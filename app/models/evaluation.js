@@ -11,7 +11,7 @@ var evaluationSchema = mongoose.Schema({
 evaluationSchema.statics.submitEvaluation = function(id, result, opinion) {
   return new Promise(function(resolve, reject) {
     var Evaluation = mongoose.model('Evaluation', evaluationSchema);
-    Evaluation.update({ userId: id }, { result: result, opinion: opinion, date: new Date().toISOString().slice(0,10) }).exec().then(function(data) {
+    Evaluation.findOneAndUpdate({ 'userId': id }, { date: new Date().toISOString().slice(0,10), result: result, opinion: opinion }, { upsert: true }).then(function() {
       resolve('Success');
     }, function(err) {
       reject(err);
