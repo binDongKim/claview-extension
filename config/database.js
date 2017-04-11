@@ -1,3 +1,3 @@
 module.exports = {
-  'url': 'mongodb://localhost/claview'
+  'url': process.env.MONGOLAB_URI
 };
