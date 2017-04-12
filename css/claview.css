@@ -1,9 +1,6 @@
 html {
   text-align: center;
 }
-.app-title {
-  font-size: 2em;
-}
 .form-group {
   margin-bottom: 5px;
 }
@@ -20,16 +17,16 @@ div .alert {
   .container {
     width: 100%;
   }
+  .app-title {
+    font-size: 7vw;
+  }
 }
 @media screen and (min-width: 768px) {
-  body {
-    font-size: 18px;
-  }
   .container {
     width: 50%;
     margin: auto;
   }
   .app-title {
-    margin-bottom: 15px;
+    font-size: 3vw;
   }
 }
