@@ -1,12 +1,8 @@
 html {
   text-align: center;
 }
-.container {
-  width: 50%;
-  margin: auto;
-}
 .app-title {
-  margin-bottom: 15px;
+  font-size: 2em;
 }
 .form-group {
   margin-bottom: 5px;
@@ -15,11 +11,25 @@ html {
   width: 100%;
 }
 .signup-signin-switch {
-  font-size: 20px;
-}
-.alert-message {
-  font-size: 18px;
+  font-size: 1.1em;
 }
 div .alert {
   margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  .container {
+    width: 50%;
+    margin: auto;
+  }
+  .app-title {
+    margin-bottom: 15px;
+  }
 }
