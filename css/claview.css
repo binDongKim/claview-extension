@@ -1,39 +1,49 @@
 html {
   text-align: center;
 }
+
 .form-group {
   margin-bottom: 5px;
 }
+
 .signup-signin-btn {
   width: 100%;
 }
+
 .signup-signin-switch {
   font-size: 1.1em;
 }
+
 div .alert {
   margin-bottom: 5px;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 767px) {
   .container {
     width: 100%;
   }
+
   .app-title {
     font-size: 6vw;
     // font-size: 2em;
   }
+
   .alert-message {
     font-size: 1.2em;
   }
 }
+
 @media screen and (min-width: 768px) {
   .container {
     width: 50%;
     margin: auto;
   }
+
   .app-title {
     font-size: 3vw;
     // font-size: 3em;
   }
+
   .alert-message {
     font-size: 1.3em;
   }
