@@ -23,13 +23,11 @@ module.exports = function(app, passport) {
 
   // evaluate page
   app.get('/evaluate', isAuthenticated, isStudent, function(req, res) {
-    Evaluation.getEvaluation(req.user.id).then(function(evaluation) {
-      if(evaluation === null) {
-        evaluation = new Evaluation();
-      }
+    Promise.all([Evaluation.getGoodEvaluation(req.user.id), Evaluation.getBadEvaluation(req.user.id)]).then(function(evaluations) {
       res.render('pages/evaluate', {
         user : req.user, // get the user out of session and pass to template
-        evaluation : evaluation,
+        goodEvaluation : evaluations[0],
+        badEvaluation : evaluations[1],
         message: req.flash('authorityMessage')
       });
     }, (err) => { console.log(err); });
