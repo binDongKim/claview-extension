@@ -21,6 +21,30 @@ module.exports = function(app, passport) {
     res.render('pages/signup', { message: req.flash('signupMessage') });
   });
 
+  // finished page
+  app.get('/finished', function(req, res) {
+    res.render('pages/finished', {
+      user : req.user
+    });
+  });
+
+  // radioUI evaluate page(en)
+  app.get('/radio-evaluate', isAuthenticated, isStudent, function(req, res) {
+    res.render('pages/radio-evaluate-en', {
+      user : req.user
+    });
+  });
+
+  // radioUI evaluate page(kr)
+  app.get('/radio-evaluate-kr', isAuthenticated, isStudent, function(req, res) {
+    Evaluation.getRadioEvaluation(req.user.id).then(function(evaluation) {
+      res.render('pages/radio-evaluate-kr', {
+        user : req.user,
+        evaluation
+      });
+    });
+  });
+
   // evaluate page
   app.get('/evaluate', isAuthenticated, isStudent, function(req, res) {
     Promise.all([Evaluation.getGoodEvaluation(req.user.id), Evaluation.getBadEvaluation(req.user.id)]).then(function(evaluations) {
