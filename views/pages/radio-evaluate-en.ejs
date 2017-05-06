@@ -19,6 +19,8 @@
           </div>
         <% } %>
         <form id="radioEvaluationForm" action="/radioEvaluate" method="post">
+          <input type="hidden" name="userId" value="<%= user.id %>">
+          <input type="hidden" name="userName" value="<%= user.name %>">
           <div class="table-responsive">
             <table class="table table-bordered table-hover">
               <tr>

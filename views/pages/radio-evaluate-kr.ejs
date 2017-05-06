@@ -18,7 +18,9 @@
             <p class="alert-message"><%= user.name %>, how was your class?</p>
           </div>
         <% } %>
-        <form id="" action="" method="post">
+        <form id="radioEvaluationForm" action="/radioEvaluate" method="post">
+          <input type="hidden" name="userId" value="<%= user.id %>">
+          <input type="hidden" name="userName" value="<%= user.name %>">
           <div class="table-responsive">
             <table class="table table-bordered table-hover">
               <tr>
@@ -31,43 +33,43 @@
               </tr>
               <tr>
                 <td>수업은 수업계획서대로 진행되었다.</td>
-                <td><input type="radio" name="question-1" value="Absolutely" required></td>
-                <td><input type="radio" name="question-1" value="I guess so" required></td>
-                <td><input type="radio" name="question-1" value="I don't care" required></td>
-                <td><input type="radio" name="question-1" value="I don't think so" required></td>
-                <td><input type="radio" name="question-1" value="Absolutely not" required></td>
+                <td><input type="radio" name="question-1" value="매우 그렇다" required></td>
+                <td><input type="radio" name="question-1" value="그렇다" required></td>
+                <td><input type="radio" name="question-1" value="보통이다" required></td>
+                <td><input type="radio" name="question-1" value="그렇지 않다" required></td>
+                <td><input type="radio" name="question-1" value="매우 그렇지 않다" required></td>
               </tr>
               <tr>
                 <td>교수는 수업준비(교재, 학습자료)를 철저히 하였다.</td>
-                <td><input type="radio" name="question-2" value="Absolutely" required></td>
-                <td><input type="radio" name="question-2" value="I guess so" required></td>
-                <td><input type="radio" name="question-2" value="I don't care" required></td>
-                <td><input type="radio" name="question-2" value="I don't think so" required></td>
-                <td><input type="radio" name="question-2" value="Absolutely not" required></td>
+                <td><input type="radio" name="question-2" value="매우 그렇다" required></td>
+                <td><input type="radio" name="question-2" value="그렇다" required></td>
+                <td><input type="radio" name="question-2" value="보통이다" required></td>
+                <td><input type="radio" name="question-2" value="그렇지 않다" required></td>
+                <td><input type="radio" name="question-2" value="매우 그렇지 않다" required></td>
               </tr>
               <tr>
                 <td>교수는 교과내용을 명확하게 설명하였다.</td>
-                <td><input type="radio" name="question-3" value="Absolutely" required></td>
-                <td><input type="radio" name="question-3" value="I guess so" required></td>
-                <td><input type="radio" name="question-3" value="I don't care" required></td>
-                <td><input type="radio" name="question-3" value="I don't think so" required></td>
-                <td><input type="radio" name="question-3" value="Absolutely not" required></td>
+                <td><input type="radio" name="question-3" value="매우 그렇다" required></td>
+                <td><input type="radio" name="question-3" value="그렇다" required></td>
+                <td><input type="radio" name="question-3" value="보통이다" required></td>
+                <td><input type="radio" name="question-3" value="그렇지 않다" required></td>
+                <td><input type="radio" name="question-3" value="매우 그렇지 않다" required></td>
               </tr>
               <tr>
                 <td>교수는 질문들을 적절히 수용하였고, 성실히 응답했다.</td>
-                <td><input type="radio" name="question-4" value="Absolutely" required></td>
-                <td><input type="radio" name="question-4" value="I guess so" required></td>
-                <td><input type="radio" name="question-4" value="I don't care" required></td>
-                <td><input type="radio" name="question-4" value="I don't think so" required></td>
-                <td><input type="radio" name="question-4" value="Absolutely not" required></td>
+                <td><input type="radio" name="question-4" value="매우 그렇다" required></td>
+                <td><input type="radio" name="question-4" value="그렇다" required></td>
+                <td><input type="radio" name="question-4" value="보통이다" required></td>
+                <td><input type="radio" name="question-4" value="그렇지 않다" required></td>
+                <td><input type="radio" name="question-4" value="매우 그렇지 않다" required></td>
               </tr>
               <tr>
                 <td>교수는 열성적으로 강의하였다.</td>
-                <td><input type="radio" name="question-5" value="Absolutely" required></td>
-                <td><input type="radio" name="question-5" value="I guess so" required></td>
-                <td><input type="radio" name="question-5" value="I don't care" required></td>
-                <td><input type="radio" name="question-5" value="I don't think so" required></td>
-                <td><input type="radio" name="question-5" value="Absolutely not" required></td>
+                <td><input type="radio" name="question-5" value="매우 그렇다" required></td>
+                <td><input type="radio" name="question-5" value="그렇다" required></td>
+                <td><input type="radio" name="question-5" value="보통이다" required></td>
+                <td><input type="radio" name="question-5" value="그렇지 않다" required></td>
+                <td><input type="radio" name="question-5" value="매우 그렇지 않다" required></td>
               </tr>
             </table>
           </div>
