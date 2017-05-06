@@ -45,14 +45,14 @@ $(document).ready(function() {
       confirmButtonColor: '#337ab7',
       confirmButtonText: 'Yes, submit it!',
       closeOnConfirm: false
-    }, function(isConfirm) {
+    }, function() {
       $.post(url, { id: userId, name: userName, result: result, opinion: opinion }).done(function(message) {
         if(message == 'Success') {
           swal({
             title: 'Success!',
             text: 'Your evaluation has been submitted!',
             type: 'success'
-          }, function(isConfirm) {
+          }, function() {
             location.reload();
           });
         } else {
@@ -60,7 +60,7 @@ $(document).ready(function() {
             title: 'Error!',
             text: 'Try it later!',
             type: 'error'
-          }, function(isConfirm) {
+          }, function() {
             location.reload();
           });
         }
