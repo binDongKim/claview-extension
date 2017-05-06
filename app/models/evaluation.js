@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var evaluationSchema = mongoose.Schema({
-  userId : { type: String, required: true, unique: true },
+  userId : String,
   date: String,
   result: String,
   opinion: String
@@ -11,7 +11,12 @@ var evaluationSchema = mongoose.Schema({
 evaluationSchema.statics.submitEvaluation = function(id, result, opinion) {
   return new Promise(function(resolve, reject) {
     var Evaluation = mongoose.model('Evaluation', evaluationSchema);
-    Evaluation.findOneAndUpdate({ 'userId': id }, { date: new Date().toISOString().slice(0,10), result: result, opinion: opinion }, { upsert: true }).then(function() {
+    var newEvaluation = new Evaluation();
+    newEvaluation.userId = id;
+    newEvaluation.date = new Date().toISOString().slice(0,10);
+    newEvaluation.result = result;
+    newEvaluation.opinion = opinion;
+    newEvaluation.save().then(function() {
       resolve('Success');
     }, function(err) {
       reject(err);
