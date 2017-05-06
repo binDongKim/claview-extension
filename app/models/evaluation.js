@@ -36,6 +36,36 @@ evaluationSchema.statics.getEvaluation = function(id) {
   });
 };
 
+// get the good evaluation of today with userId
+evaluationSchema.statics.getGoodEvaluation = function(id) {
+  return new Promise(function(resolve, reject) {
+    var Evaluation = mongoose.model('Evaluation', evaluationSchema);
+    Evaluation.findOne({ 'userId': id, date: new Date().toISOString().slice(0,10), result: 'good' }).then(function(evaluation) {
+      if(evaluation === null) {
+        resolve(new Evaluation());
+      }
+      resolve(evaluation);
+    }, function(err) {
+      reject(err);
+    });
+  });
+};
+
+// get the bad evaluation of today with userId
+evaluationSchema.statics.getBadEvaluation = function(id) {
+  return new Promise(function(resolve, reject) {
+    var Evaluation = mongoose.model('Evaluation', evaluationSchema);
+    Evaluation.findOne({ 'userId': id, date: new Date().toISOString().slice(0,10), result: 'bad' }).then(function(evaluation) {
+      if(evaluation === null) {
+        resolve(new Evaluation());
+      }
+      resolve(evaluation);
+    }, function(err) {
+      reject(err);
+    });
+  });
+};
+
 // get 'good' evaluations of today
 evaluationSchema.statics.getGoodEvaluations = function() {
   return new Promise(function(resolve, reject) {
