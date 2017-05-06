@@ -12,7 +12,7 @@
         <% if(message.length > 0) { %>
           <div class="authority-error-alert alert alert-warning"><p class="alert-message"><%= message %></p></div>
         <% } %>
-        <% if(evaluation.result) { %>
+        <% if(goodEvaluation.result || badEvaluation.result) { %>
           <div class="alert alert-success">
             <p class="alert-message"><%= user.name %>, your evaluation has been submitted!</p>
           </div>
@@ -38,12 +38,14 @@
               <form id="evaluationForm" action="/evaluate" method="post">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                  <h4 class="modal-title">Leave your opinion(Optional)</h4>
+                  <h4 class="modal-title">Leave your opinion</h4>
                 </div>
                 <div class="modal-body">
                   <input type="hidden" name="userId" value="<%= user.id %>">
-                  <input type="hidden" name="result" class="result" value="<%= evaluation.result %>">
-                  <textarea id="opinion" name="opinion" class="opinion form-control" rows="3"><%= evaluation.opinion %></textarea>
+                  <input type="hidden" name="result" class="result">
+                  <input type="hidden" name="" class="<%= goodEvaluation.result %>" value="<%= goodEvaluation.opinion %>">
+                  <input type="hidden" name="" class="<%= badEvaluation.result %>" value="<%= badEvaluation.opinion %>">
+                  <textarea id="opinion" name="opinion" class="opinion form-control" rows="3"></textarea>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="dismiss-btn btn btn-default" data-dismiss="modal">Close</button>
