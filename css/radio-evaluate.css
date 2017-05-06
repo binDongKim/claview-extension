@@ -1,0 +1,10 @@
+.container {
+  width: 90% !important;
+}
+.table {
+  margin-bottom: 5px !important;
+}
+th, td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+    <link rel="stylesheet" href="../../css/radio-evaluate.css">
+    <script src="../../js/radio-evaluate.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header><% include ../partials/header %></header>
+      <main>
+        <% if(0==1) { %>
+          <div class="alert alert-success">
+            <p class="alert-message"><%= user.name %>, your evaluation has been submitted!</p>
+          </div>
+        <% } else { %>
+          <div class="alert alert-info">
+            <p class="alert-message"><%= user.name %>, how was your class?</p>
+          </div>
+        <% } %>
+        <form id="" action="" method="post">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <tr>
+                <th>평가 문항</th>
+                <th>매우 그렇다</th>
+                <th>그렇다</th>
+                <th>보통이다</th>
+                <th>그렇지 않다</th>
+                <th>매우 그렇지 않다</th>
+              </tr>
+              <tr>
+                <td>수업은 수업계획서대로 진행되었다.</td>
+                <td><input type="radio" name="question-1" value="Absolutely" required></td>
+                <td><input type="radio" name="question-1" value="I guess so" required></td>
+                <td><input type="radio" name="question-1" value="I don't care" required></td>
+                <td><input type="radio" name="question-1" value="I don't think so" required></td>
+                <td><input type="radio" name="question-1" value="Absolutely not" required></td>
+              </tr>
+              <tr>
+                <td>교수는 수업준비(교재, 학습자료)를 철저히 하였다.</td>
+                <td><input type="radio" name="question-2" value="Absolutely" required></td>
+                <td><input type="radio" name="question-2" value="I guess so" required></td>
+                <td><input type="radio" name="question-2" value="I don't care" required></td>
+                <td><input type="radio" name="question-2" value="I don't think so" required></td>
+                <td><input type="radio" name="question-2" value="Absolutely not" required></td>
+              </tr>
+              <tr>
+                <td>교수는 교과내용을 명확하게 설명하였다.</td>
+                <td><input type="radio" name="question-3" value="Absolutely" required></td>
+                <td><input type="radio" name="question-3" value="I guess so" required></td>
+                <td><input type="radio" name="question-3" value="I don't care" required></td>
+                <td><input type="radio" name="question-3" value="I don't think so" required></td>
+                <td><input type="radio" name="question-3" value="Absolutely not" required></td>
+              </tr>
+              <tr>
+                <td>교수는 질문들을 적절히 수용하였고, 성실히 응답했다.</td>
+                <td><input type="radio" name="question-4" value="Absolutely" required></td>
+                <td><input type="radio" name="question-4" value="I guess so" required></td>
+                <td><input type="radio" name="question-4" value="I don't care" required></td>
+                <td><input type="radio" name="question-4" value="I don't think so" required></td>
+                <td><input type="radio" name="question-4" value="Absolutely not" required></td>
+              </tr>
+              <tr>
+                <td>교수는 열성적으로 강의하였다.</td>
+                <td><input type="radio" name="question-5" value="Absolutely" required></td>
+                <td><input type="radio" name="question-5" value="I guess so" required></td>
+                <td><input type="radio" name="question-5" value="I don't care" required></td>
+                <td><input type="radio" name="question-5" value="I don't think so" required></td>
+                <td><input type="radio" name="question-5" value="Absolutely not" required></td>
+              </tr>
+            </table>
+          </div>
+          <button type="submit" class="submit-btn btn btn-primary pull-right">제출</button>
+        </form>
+        <a href="/evaluate" class="btn btn-link pull-left">Go To ButtonUI Evaluation</a>
+        <a href="/radio-evaluate" class="change-language btn btn-link pull-left">In English</a>
+      </main>
+    </div>
+  </body>
+</html>
