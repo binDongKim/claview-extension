@@ -62,9 +62,23 @@ module.exports = function(app, passport) {
   // do evaluate
   app.post('/evaluate', function(req, res) {
     var id = req.user.id;
+    var name = req.user.name;
     var result = req.body.result;
     var opinion = req.body.opinion ? req.body.opinion : 'No opinion.';
-    Evaluation.submitEvaluation(id, result, opinion).then(function(data) {
+    Evaluation.submitEvaluation(id, name, result, opinion).then(function(data) {
+      res.send('Success');
+    }, function(err) {
+      console.log('Error: ' + err);
+      res.send('Error');
+    });
+  });
+
+  // do evaluate in radioUI
+  app.post('/radioEvaluate', function(req, res) {
+    var id = req.user.id;
+    var name = req.user.name;
+    var result = (req.body.result).join();
+    Evaluation.submitRadioEvaluation(id, name, result).then(function(data) {
       res.send('Success');
     }, function(err) {
       console.log('Error: ' + err);

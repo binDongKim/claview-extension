@@ -34,6 +34,7 @@ $(document).ready(function() {
     event.preventDefault();
     var url = $(this).attr('action');
     var userId = $('input[name="userId"]').val();
+    var userName = $('input[name="userName"]').val();
     var result = $('input[name="result"]').val();
     var opinion = $('textarea[name="opinion"]').val();
     swal({
@@ -45,7 +46,7 @@ $(document).ready(function() {
       confirmButtonText: 'Yes, submit it!',
       closeOnConfirm: false
     }, function(isConfirm) {
-      $.post(url, { id: userId, result: result, opinion: opinion }).done(function(message) {
+      $.post(url, { id: userId, name: userName, result: result, opinion: opinion }).done(function(message) {
         if(message == 'Success') {
           swal({
             title: 'Success!',
