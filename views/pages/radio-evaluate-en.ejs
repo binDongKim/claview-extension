@@ -21,57 +21,117 @@
         <form id="radioEvaluationForm" action="/radioEvaluate" method="post">
           <input type="hidden" name="userId" value="<%= user.id %>">
           <input type="hidden" name="userName" value="<%= user.name %>">
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-              <tr>
-                <th>Evaluation Items</th>
-                <th>Absolutely</th>
-                <th>I guess so</th>
-                <th>I don't care</th>
-                <th>I don't think so</th>
-                <th>Absolutely not</th>
-              </tr>
-              <tr>
-                <td>The professor proceeded the class exactly the way it was supposed to go.</td>
-                <td><input type="radio" name="question-1" value="Absolutely" required></td>
-                <td><input type="radio" name="question-1" value="I guess so" required></td>
-                <td><input type="radio" name="question-1" value="I don't care" required></td>
-                <td><input type="radio" name="question-1" value="I don't think so" required></td>
-                <td><input type="radio" name="question-1" value="Absolutely not" required></td>
-              </tr>
-              <tr>
-                <td>The professor prepared the class well in terms of teaching materials.</td>
-                <td><input type="radio" name="question-2" value="Absolutely" required></td>
-                <td><input type="radio" name="question-2" value="I guess so" required></td>
-                <td><input type="radio" name="question-2" value="I don't care" required></td>
-                <td><input type="radio" name="question-2" value="I don't think so" required></td>
-                <td><input type="radio" name="question-2" value="Absolutely not" required></td>
-              </tr>
-              <tr>
-                <td>The professor explained the subject clearly.</td>
-                <td><input type="radio" name="question-3" value="Absolutely" required></td>
-                <td><input type="radio" name="question-3" value="I guess so" required></td>
-                <td><input type="radio" name="question-3" value="I don't care" required></td>
-                <td><input type="radio" name="question-3" value="I don't think so" required></td>
-                <td><input type="radio" name="question-3" value="Absolutely not" required></td>
-              </tr>
-              <tr>
-                <td>The professor took questions and answered them back nicely.</td>
-                <td><input type="radio" name="question-4" value="Absolutely" required></td>
-                <td><input type="radio" name="question-4" value="I guess so" required></td>
-                <td><input type="radio" name="question-4" value="I don't care" required></td>
-                <td><input type="radio" name="question-4" value="I don't think so" required></td>
-                <td><input type="radio" name="question-4" value="Absolutely not" required></td>
-              </tr>
-              <tr>
-                <td>The professor was passionate in the class.</td>
-                <td><input type="radio" name="question-5" value="Absolutely" required></td>
-                <td><input type="radio" name="question-5" value="I guess so" required></td>
-                <td><input type="radio" name="question-5" value="I don't care" required></td>
-                <td><input type="radio" name="question-5" value="I don't think so" required></td>
-                <td><input type="radio" name="question-5" value="Absolutely not" required></td>
-              </tr>
-            </table>
+          <div class="panel-container">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">1. The professor proceeded the class exactly the way it was supposed to go.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="Absolutely" required>Absolutely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="I guess so" required>I guess so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="I don't care" required>I don't care</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="I don't think so" required>I don't think so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="Absolutely not" required>Absolutely not</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">2. The professor prepared the class well in terms of teaching materials.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="Absolutely" required>Absolutely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="I guess so" required>I guess so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="I don't care" required>I don't care</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="I don't think so" required>I don't think so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="Absolutely not" required>Absolutely not</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">3. The professor explained the subject clearly.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="Absolutely" required>Absolutely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="I guess so" required>I guess so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="I don't care" required>I don't care</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="I don't think so" required>I don't think so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="Absolutely not" required>Absolutely not</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">4. The professor took questions and answered them back nicely.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="Absolutely" required>Absolutely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="I guess so" required>I guess so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="I don't care" required>I don't care</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="I don't think so" required>I don't think so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="Absolutely not" required>Absolutely not</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">5. The professor was passionate in the class.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="Absolutely" required>Absolutely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="I guess so" required>I guess so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="I don't care" required>I don't care</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="I don't think so" required>I don't think so</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="Absolutely not" required>Absolutely not</label>
+                </div>
+              </div>
+            </div>
           </div>
           <button type="submit" class="submit-btn btn btn-primary pull-right">Submit</button>
         </form>

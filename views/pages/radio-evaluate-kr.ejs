@@ -21,57 +21,117 @@
         <form id="radioEvaluationForm" action="/radioEvaluate" method="post">
           <input type="hidden" name="userId" value="<%= user.id %>">
           <input type="hidden" name="userName" value="<%= user.name %>">
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-              <tr>
-                <th>평가 문항</th>
-                <th>매우 그렇다</th>
-                <th>그렇다</th>
-                <th>보통이다</th>
-                <th>그렇지 않다</th>
-                <th>매우 그렇지 않다</th>
-              </tr>
-              <tr>
-                <td>수업은 수업계획서대로 진행되었다.</td>
-                <td><input type="radio" name="question-1" value="매우 그렇다" required></td>
-                <td><input type="radio" name="question-1" value="그렇다" required></td>
-                <td><input type="radio" name="question-1" value="보통이다" required></td>
-                <td><input type="radio" name="question-1" value="그렇지 않다" required></td>
-                <td><input type="radio" name="question-1" value="매우 그렇지 않다" required></td>
-              </tr>
-              <tr>
-                <td>교수는 수업준비(교재, 학습자료)를 철저히 하였다.</td>
-                <td><input type="radio" name="question-2" value="매우 그렇다" required></td>
-                <td><input type="radio" name="question-2" value="그렇다" required></td>
-                <td><input type="radio" name="question-2" value="보통이다" required></td>
-                <td><input type="radio" name="question-2" value="그렇지 않다" required></td>
-                <td><input type="radio" name="question-2" value="매우 그렇지 않다" required></td>
-              </tr>
-              <tr>
-                <td>교수는 교과내용을 명확하게 설명하였다.</td>
-                <td><input type="radio" name="question-3" value="매우 그렇다" required></td>
-                <td><input type="radio" name="question-3" value="그렇다" required></td>
-                <td><input type="radio" name="question-3" value="보통이다" required></td>
-                <td><input type="radio" name="question-3" value="그렇지 않다" required></td>
-                <td><input type="radio" name="question-3" value="매우 그렇지 않다" required></td>
-              </tr>
-              <tr>
-                <td>교수는 질문들을 적절히 수용하였고, 성실히 응답했다.</td>
-                <td><input type="radio" name="question-4" value="매우 그렇다" required></td>
-                <td><input type="radio" name="question-4" value="그렇다" required></td>
-                <td><input type="radio" name="question-4" value="보통이다" required></td>
-                <td><input type="radio" name="question-4" value="그렇지 않다" required></td>
-                <td><input type="radio" name="question-4" value="매우 그렇지 않다" required></td>
-              </tr>
-              <tr>
-                <td>교수는 열성적으로 강의하였다.</td>
-                <td><input type="radio" name="question-5" value="매우 그렇다" required></td>
-                <td><input type="radio" name="question-5" value="그렇다" required></td>
-                <td><input type="radio" name="question-5" value="보통이다" required></td>
-                <td><input type="radio" name="question-5" value="그렇지 않다" required></td>
-                <td><input type="radio" name="question-5" value="매우 그렇지 않다" required></td>
-              </tr>
-            </table>
+          <div class="panel-container">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">1. 수업은 수업계획서대로 진행되었다.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="매우 그렇다" required>매우 그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="그렇다" required>그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="보통이다" required>보통이다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="그렇지 않다" required>그렇지 않다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-1" value="매우 그렇지 않다" required>매우 그렇지 않다</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">2. 교수는 수업준비(교재, 학습자료)를 철저히 하였다.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="매우 그렇다" required>매우 그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="그렇다" required>그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="보통이다" required>보통이다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="그렇지 않다" required>그렇지 않다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-2" value="매우 그렇지 않다" required>매우 그렇지 않다</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">3. 교수는 교과내용을 명확하게 설명하였다.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="매우 그렇다" required>매우 그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="그렇다" required>그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="보통이다" required>보통이다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="그렇지 않다" required>그렇지 않다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-3" value="매우 그렇지 않다" required>매우 그렇지 않다</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">4. 교수는 질문들을 적절히 수용하였고, 성실히 응답했다.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="매우 그렇다" required>매우 그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="그렇다" required>그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="보통이다" required>보통이다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="그렇지 않다" required>그렇지 않다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-4" value="매우 그렇지 않다" required>매우 그렇지 않다</label>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p class="evaluation-item">5. 교수는 열성적으로 강의하였다.</p>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="매우 그렇다" required>매우 그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="그렇다" required>그렇다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="보통이다" required>보통이다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="그렇지 않다" required>그렇지 않다</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="question-5" value="매우 그렇지 않다" required>매우 그렇지 않다</label>
+                </div>
+              </div>
+            </div>
           </div>
           <button type="submit" class="submit-btn btn btn-primary pull-right">제출</button>
         </form>
