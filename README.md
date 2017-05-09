@@ -1,4 +1,6 @@
-# Claview(Class + Review)
+# Claview-Extension
+### Description
+>Designed to research how people would feel about the two interfaces(Button UI vs Radio UI) in evaluation system
 
-http://claview-extension.herokuapp.com
-> An web application which lets students evaluate classes
+### URL
+>https://claview-extension.herokuapp.com
